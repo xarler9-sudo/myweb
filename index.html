@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BCA Student Portfolio</title>
+  <meta name="description" content="Portfolio website of a first-semester BCA student, University of Burdwan.">
+
+  <!-- Fonts: Space Grotesk for headings, Inter for text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header and navigation ===== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#home">YN<span>.</span></a>
+
+      <button id="menu-btn" class="icon-btn menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+
+      <nav id="nav" class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#courses">Semester 1</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button id="theme-btn" class="icon-btn" aria-label="Switch between light and dark theme">Dark</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Home / hero ===== -->
+    <section id="home" class="hero">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">BCA, Semester 1 &middot; University of Burdwan</p>
+        <h1>Hi, I'm <span id="my-name">Debajit Muhuri</span>.<br>I'm learning to build for the web.</h1>
+        <p class="lead">
+          This site is my first-semester web project. It is written with plain HTML, CSS and
+          JavaScript, with no frameworks, so every line can be explained.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section">
+      <div class="wrap two-col">
+        <div>
+          <h2>About me</h2>
+        </div>
+        <div class="prose">
+          <p>
+            I am a first-semester student of the Bachelor of Computer Applications (BCA) at the
+            University of Burdwan. I enjoy understanding how websites and software work, and I
+            am especially curious about how to make them secure.
+          </p>
+          <p>
+            Right now I am learning C programming, mathematics and web basics. My goal is to
+            build real applications and find and fix their weaknesses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="section alt">
+      <div class="wrap">
+        <h2>Skills</h2>
+        <ul class="skill-list">
+          <li><strong>HTML</strong><span class="tag">Learning</span></li>
+          <li><strong>CSS</strong><span class="tag">Learning</span></li>
+          <li><strong>JavaScript</strong><span class="tag">Beginner</span></li>
+          <li><strong>C programming</strong><span class="tag">Semester 1</span></li>
+          <li><strong>MS Word, Excel, PowerPoint</strong><span class="tag">Semester 1</span></li>
+          <li><strong>Web security basics</strong><span class="tag">Self-study</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Semester 1 courses (table) ===== -->
+    <section id="courses" class="section">
+      <div class="wrap">
+        <h2>My Semester 1 papers</h2>
+        <p class="muted">Taken from the University of Burdwan BCA syllabus under NEP 2020.</p>
+
+        <div class="table-scroll">
+          <table>
+            <caption class="sr-only">Semester 1 papers with code, type and credits</caption>
+            <thead>
+              <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Paper</th>
+                <th scope="col">Type</th>
+                <th scope="col" class="num">Credits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>BCA 1011</td><td>Computer Fundamentals and Introduction to C Programming</td><td>Major (Core)</td><td class="num">4</td></tr>
+              <tr><td>BCA 1021</td><td>Mathematics-I</td><td>Minor</td><td class="num">4</td></tr>
+              <tr><td>BCA 1051</td><td>PC Software (practical)</td><td>Skill Enhancement</td><td class="num">3</td></tr>
+              <tr><td>AEC 1041</td><td>Language course : Bengali</td><td>Ability Enhancement</td><td class="num">2</td></tr>
+              <tr><td>CVA 1061</td><td>Environmental Science</td><td>Value Added</td><td class="num">4</td></tr>
+              <tr><td>CVA 1031</td><td>management</td><td>idk</td><td class="num">idk</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects (edit these with your real work) ===== -->
+    <section id="projects" class="section alt">
+      <div class="wrap">
+        <h2>Projects</h2>
+        <div class="card-grid">
+
+          <article class="card">
+            <h3>This portfolio site</h3>
+            <p>A responsive website with a light and dark theme, a mobile menu and a contact form that checks its input.</p>
+            <p class="meta">HTML &middot; CSS &middot; JavaScript</p>
+          </article>
+
+          <article class="card">
+            <h3>C practical programs</h3>
+            <p>Lab programs from BCA 1011, such as prime number generation, Fibonacci series and string handling.</p>
+            <p class="meta">C language</p>
+          </article>
+
+          <article class="card">
+            <h3>Office documents</h3>
+            <p>A formatted report in Word, a marks sheet with charts in Excel and a presentation from the PC Software lab.</p>
+            <p class="meta">MS Office</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact form ===== -->
+    <section id="contact" class="section">
+      <div class="wrap two-col">
+        <div>
+          <h2>Contact</h2>
+          <p class="muted">Send me a message. The form checks every field before it accepts the message.</p>
+        </div>
+
+        <form id="contact-form" class="form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <p class="error" id="name-error" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+            <p class="error" id="email-error" role="alert"></p>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <p class="error" id="message-error" role="alert"></p>
+          </div>
+
+          <button class="btn primary" type="submit">Send message</button>
+          <p id="form-status" class="status" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> <span class="footer-name">Your Name</span> &middot; BCA, University of Burdwan</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

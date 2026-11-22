@@ -1,0 +1,293 @@
+/* ==========================================================
+   Portfolio stylesheet
+   Layout idea: one calm column of sections, alternating
+   background bands, a single teal accent.
+   ========================================================== */
+
+/* ---------- Design tokens (light theme) ---------- */
+:root {
+  --bg:        #f6f8fa;
+  --bg-alt:    #eaf0f4;
+  --surface:   #ffffff;
+  --text:      #17202a;
+  --muted:     #566573;
+  --line:      #d5dde4;
+  --accent:    #0b7a75;   /* teal */
+  --accent-ink:#ffffff;   /* text on top of the accent */
+
+  --font-head: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  --radius: 10px;
+  --max: 64rem;
+}
+
+/* ---------- Dark theme (set by script.js on <html data-theme="dark">) ---------- */
+:root[data-theme="dark"] {
+  --bg:        #0f171d;
+  --bg-alt:    #141f27;
+  --surface:   #1a2630;
+  --text:      #e6edf2;
+  --muted:     #9aabb8;
+  --line:      #2a3945;
+  --accent:    #3ec9bf;
+  --accent-ink:#06201e;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.muted { color: var(--muted); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.75rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text);
+  text-decoration: none;
+  margin-right: auto;
+}
+.logo span { color: var(--accent); }
+
+.nav { display: flex; gap: 1.25rem; }
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+.nav a:hover { border-bottom-color: var(--accent); }
+
+.icon-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--accent); }
+
+.menu-btn { display: none; }
+
+/* ---------- Hero ---------- */
+.hero { padding-block: clamp(3rem, 8vw, 6rem); }
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lead { max-width: 38rem; font-size: 1.15rem; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  background: transparent;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.25rem;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+.btn.primary {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.btn.primary:hover { filter: brightness(1.08); }
+
+/* ---------- Sections ---------- */
+.section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.section.alt { background: var(--bg-alt); }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+.two-col > * { min-width: 0; }
+
+.prose p { max-width: 40rem; }
+
+/* ---------- Skills list ---------- */
+.skill-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+.skill-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+}
+.tag {
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---------- Table ---------- */
+.table-scroll { overflow-x: auto; margin-top: 1rem; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+th, td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+th {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg-alt);
+}
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- Project cards ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.card .meta { margin: 0; font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+
+/* ---------- Form ---------- */
+.form { display: grid; gap: 1rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.65rem 0.8rem;
+}
+.field input:focus,
+.field textarea:focus { border-color: var(--accent); }
+.field.invalid input,
+.field.invalid textarea { border-color: #c0392b; }
+.error { color: #c0392b; font-size: 0.875rem; margin: 0.3rem 0 0; min-height: 1.2em; }
+:root[data-theme="dark"] .error,
+:root[data-theme="dark"] .field.invalid input { color: #ff8a7a; border-color: #ff8a7a; }
+.status { margin: 0; font-weight: 600; color: var(--accent); }
+.form .btn { justify-self: start; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-block: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 40rem) {
+  .menu-btn { display: inline-block; }
+
+  .nav {
+    display: none;            /* hidden until the Menu button is pressed */
+    flex-direction: column;
+    width: 100%;
+    gap: 0.25rem;
+    padding-bottom: 0.75rem;
+    order: 5;
+  }
+  .nav.open { display: flex; }
+
+  .two-col { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
